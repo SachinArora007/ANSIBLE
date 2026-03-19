@@ -1,0 +1,11 @@
+- name: Configure Selinux using sysetm role
+  hosts: localhost
+  become: yes
+
+  roles:
+    - linux-system-roles.selinux
+
+  vars:
+    selinux_policy: targeted
+    selinux_state: permissive
+#   selinux_state: disabled
