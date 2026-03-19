@@ -1,0 +1,9 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: update the line in the file 
+      lineinfile:
+        path: /tmp/app.conf
+        line: "WEBAPP"
+        insertbefore: '^ENV'

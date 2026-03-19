@@ -1,0 +1,18 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: check the uptime of the machines
+      command: uptime
+      register: result
+
+    - debug: 
+        var: result.stdout
+
+    
+    - name: check the uptime using shell
+      command: uptime
+      register: response
+
+    - debug: 
+        var: response

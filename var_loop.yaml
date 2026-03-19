@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  vars:
+    package_name:
+      - nginx
+      - samba
+      - snmpd
+
+  tasks:
+    - name: install packages 
+      yum:
+        name: "{{ item }}"
+        state: present
+
+      loop: "{{ package_name }}"

@@ -1,0 +1,11 @@
+- hosts: all
+  become: yes
+  
+  vars: 
+    package_name: nginx
+
+  tasks:
+    - name: install package $package_name
+      yum: 
+        name: "{{ package_name }}"
+        state: present

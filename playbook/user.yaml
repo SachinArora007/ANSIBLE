@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+
+  vars:
+    users:
+      - harry
+      - jerry
+      - carry
+
+  tasks:
+    - name: create users from variable
+      user:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users }}"

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install nfs
+      yum:
+        name: nfs-utils
+        state: present
+      notify: restart nfs
+  handlers:
+    - name: restart nfs
+      service:
+        name: nfs
+        state: restarted
+

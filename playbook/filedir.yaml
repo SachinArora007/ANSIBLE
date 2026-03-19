@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+    
+  tasks:
+    - name: create dir
+      file:
+        path: /ansible/test
+        state: directory
+      
+    - name: create file
+      file:
+        path: /ansible/test/abc.com
+        state: touch
