@@ -1,0 +1,8 @@
+- hosts: all
+  become: yes
+  roles:
+    - name: deplay nginx port and index message with deploy.yaml
+      role: deploy_nginx
+      vars: 
+        nginx_port: 8080
+        index_message: "Hello from ansible Nginx"

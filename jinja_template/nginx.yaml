@@ -1,0 +1,23 @@
+- hosts: all
+  become: yes
+  gather_facts: yes
+  vars_files:
+    - var.yaml
+
+  tasks:
+    - name: Install nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Deploy default index.html usingh jinja
+      template: 
+        src: index.html.j2
+        dest: /usr/share/nginx/html/index.html
+        mode: '0644'
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
